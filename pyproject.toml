@@ -1,0 +1,13 @@
+[project]
+name = "woow-vk-mcp-server"
+version = "1.0.0"
+description = "WoowTech VK MCP Server - Three-piece MCP service for Vibe Kanban"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.100.0",
+    "uvicorn>=0.20.0",
+    "httpx>=0.24.0",
+    "pydantic>=2.0.0",
+    "python-multipart>=0.0.6",
+    "sse-starlette>=1.6.0",
+]

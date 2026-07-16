@@ -1,0 +1,23 @@
+# VK MCP Server — Tool Exposure Warning
+#
+# This proxy-upstream architecture exposes ALL 37 vibe-kanban-mcp tools.
+# The proxy does not parse JSON-RPC and CANNOT selectively block individual tools.
+#
+# Dangerous tools (destructive operations):
+#   - delete_workspace: Permanently deletes a workspace and its worktree
+#   - delete_issue: Permanently deletes an issue
+#   - start_workspace: Creates worktrees on the host filesystem
+#
+# To selectively block tools, migrate to the §9.2 own-server architecture
+# (custom FastMCP implementation instead of proxy-upstream).
+#
+# See: woow_vk_platform_統一規劃書 v3.0, §3.5 limitation ①
+
+dangerous_tools:
+  - delete_workspace
+  - delete_issue
+  - start_workspace
+
+total_exposed: 37
+blocking_capability: none
+mitigation: "deny-list.yaml warning + documentation only"
