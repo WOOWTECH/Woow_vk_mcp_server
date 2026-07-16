@@ -90,6 +90,13 @@ def create_app(
     else:
         static_dir = Path(static_dir)
 
+    # -- Block .well-known from SPA fallback (Claude.ai OAuth discovery) --
+    from fastapi import HTTPException as _HTTPException
+
+    @app.get("/.well-known/{path:path}", include_in_schema=False)
+    async def well_known_block(path: str):
+        raise _HTTPException(status_code=404, detail="Not found")
+
     if static_dir.is_dir():
         assets_dir = static_dir / "assets"
         if assets_dir.is_dir():

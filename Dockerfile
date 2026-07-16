@@ -27,7 +27,9 @@ RUN pip install --no-cache-dir fastapi uvicorn httpx pydantic python-multipart s
 # Copy source
 COPY mcp_admin_core/ ./mcp_admin_core/
 COPY vk_mcp_admin/ ./vk_mcp_admin/
-COPY frontend/ ./frontend/
+
+# Copy pre-built frontend as static files (SPA served by FastAPI)
+COPY frontend/dist/ ./static/
 
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
