@@ -1,3 +1,7 @@
+> [!WARNING]
+> **已停用 / Deprecated（2026-09-12）**：這個 repo 已不再維護，也不再部署在 WOOWTECH 的叢集上，僅保留作為歷史參考。
+> This repository is no longer maintained or deployed on WOOWTECH clusters and is kept for reference only.
+
 <p align="center">
   <img src="docs/screenshots/mcp-02-dashboard.png" alt="VK MCP Admin 儀表板" width="720"/>
 </p>
